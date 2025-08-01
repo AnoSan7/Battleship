@@ -11,6 +11,11 @@ body{
     justify-content: center;
     align-items: center;
 }
+.game-container{
+    display: flex;
+    gap: 16px;
+    /* align-items: center; */
+}
 .initialise-board{
     /* justify-self: center; */
     /* align-self: center; */
