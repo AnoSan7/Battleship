@@ -21,6 +21,20 @@ class GameBoard{
     placeShip(ship, x, y){
         this.ships.push({ship, x, y});
     }
+    receiveAttack(x, y){
+        for(const {ship, x: shipX, y: shipY} of this.ships){
+            if(shipX === x && shipY === y){
+                ship.hit();
+                this.hits.push({x, y});
+                return true; // Hit
+            }
+        }
+        this.misses.push({x, y});
+        return false; // Miss
+    }
+    allShipsSunk(){
+        return this.ships.every(({ship}) => ship.isSunk);
+    }
 }
 class Player{
     constructor(name){
